@@ -39,7 +39,7 @@ let songdata = [{
     ]
 }
 ]
-
+songdata[0].all = [...songdata[0].arjit ,...songdata[0].sonu,...songdata[0].neha , ...songdata[0].sidhu ]
 
 // change the 
 let changeBySinger = (getselect) => {

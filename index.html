@@ -12,16 +12,20 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="cont">
         <div class="firstbox inner">
-            <h1 style="float: left;"> MUSIC PLAYER</h1>
+            <div class="firstbox-div">
+                <h1 style="float: left;"> MUSIC PLAYER</h1>
+                <br>
             <select class="form-select" id="Singers" onchange="changeBySinger(this)"
                 aria-label="Default select example">
+                <option value="all">all</option>
                 <option value="arjit">arjit</option>
                 <option value="sonu">sonu</option>
                 <option value="neha">neha</option>
                 <option value="sidhu">sidhu</option>
             </select>
+            </div>
             <div id="songbox"></div>
         </div>
         <div class="secondbox inner">
@@ -33,6 +37,7 @@
             <button id="playpausebtn" onclick="playpause(this)"><i class="bi bi-play"></i></button>
             <button onclick="forward()"><i class="bi bi-skip-forward"></i></button>
             <hr>
+            <!-- <br> -->
             <button onclick="Addthistoplaylist()" style="background: green;" class="btn btn-primary"> Add this song to
                 playlist </button>
         </div>
