@@ -9,7 +9,6 @@ let showplaylist = document.getElementById("showplaylist");
 let addnewplaylist = document.getElementById("addnewplaylist");
 let currentplaylistsongs = document.getElementById("currentplaylistsongs");
 let currentplaylistname = document.getElementById("currentplaylistname");
-
 let singername;
 let songcount = 0;
 let playlist = [];
@@ -84,8 +83,7 @@ let playpause = (btn) => {
 let backward = () => {
     for (let i in songdata[0][singername]) {
         if (songdata[0][singername][i].songname.includes(songname.innerHTML.trim())) {
-            console.log(songname.innerHTML.trim())
-            if (songcount > 0) {
+             if (songcount > 0) {
                 songcount--;
                 audio.src = songdata[0][singername][songcount].songAddress;
                 songimg.src = songdata[0][singername][songcount].songImg;
@@ -100,6 +98,8 @@ let backward = () => {
     }
     songname.innerHTML = songdata[0][singername][songcount].songname;
 }
+
+// forward song 
 let forward = () => {
     for (let i in songdata[0][singername]) {
         if (songdata[0][singername][i].songname.includes(songname.innerHTML.trim())) {
@@ -118,14 +118,14 @@ let forward = () => {
     songname.innerHTML = songdata[0][singername][songcount].songname;
 }
 
+// add this song to current playlist 
 let Addthistoplaylist = () => {
     if (playlist.length == 0) {
         alert("please add new playlist");
     } else {
         for (let i in songdata[0][singername]) {
             if (songdata[0][singername][i].songname.includes(songname.innerHTML.trim())) {
-                console.log(playlist);
-                for (let k in playlist) {
+                 for (let k in playlist) {
                     for (let name in playlist[k]) {
                         if (name == currentplaylistname.innerText.trim()) {
                             playlist[k][name].push(songdata[0][singername][i]);
@@ -139,6 +139,7 @@ let Addthistoplaylist = () => {
     }
 }
 
+// add new playlist 
 addnewplaylist.addEventListener("click", () => {
     if (inputplaylist.value) {
         let playlistsong = document.createElement("div");
@@ -171,17 +172,26 @@ addnewplaylist.addEventListener("click", () => {
         alert("please add any name")
     }
 })
-  
+
+
+// show to playlist name 
 let Displaylist = (data) => {
     currentplaylistsongs.innerHTML = data.map((v, i) => {
-        return `<div class="songs" onclick="playthisone(${i})">${v.songname} </div>`
+         return `<div class="songs" onclick="playthisone(${i})">${v.songname} </div>`
     }).join("");
 }
 
+// play the playlist song 
 let playthisone = (i) => {
-     console.log(i);
-    audio.src = songdata[0][singername][i].songAddress;
-    songimg.src = songdata[0][singername][i].songImg;
-    songname.innerHTML = songdata[0][singername][i].songname;
-    playpause(playpausebtn);
+    for (let k in playlist) {
+        for (let name in playlist[k]) {
+            if (name == currentplaylistname.innerText.trim()) {
+                 audio.src = playlist[k][name][i].songAddress;
+                songimg.src = playlist[k][name][i].songImg;
+                songname.innerHTML = playlist[k][name][i].songname;
+                playpause(playpausebtn);;
+            }
+        }
+    }
+
 }
