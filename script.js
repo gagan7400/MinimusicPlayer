@@ -39,7 +39,7 @@ let songdata = [{
     ]
 }
 ]
-songdata[0].all = [...songdata[0].arjit ,...songdata[0].sonu,...songdata[0].neha , ...songdata[0].sidhu ]
+songdata[0].all = [...songdata[0].arjit, ...songdata[0].sonu, ...songdata[0].neha, ...songdata[0].sidhu]
 
 // change the 
 let changeBySinger = (getselect) => {
@@ -83,7 +83,7 @@ let playpause = (btn) => {
 let backward = () => {
     for (let i in songdata[0][singername]) {
         if (songdata[0][singername][i].songname.includes(songname.innerHTML.trim())) {
-             if (songcount > 0) {
+            if (songcount > 0) {
                 songcount--;
                 audio.src = songdata[0][singername][songcount].songAddress;
                 songimg.src = songdata[0][singername][songcount].songImg;
@@ -125,7 +125,7 @@ let Addthistoplaylist = () => {
     } else {
         for (let i in songdata[0][singername]) {
             if (songdata[0][singername][i].songname.includes(songname.innerHTML.trim())) {
-                 for (let k in playlist) {
+                for (let k in playlist) {
                     for (let name in playlist[k]) {
                         if (name == currentplaylistname.innerText.trim()) {
                             playlist[k][name].push(songdata[0][singername][i]);
@@ -177,7 +177,7 @@ addnewplaylist.addEventListener("click", () => {
 // show to playlist name 
 let Displaylist = (data) => {
     currentplaylistsongs.innerHTML = data.map((v, i) => {
-         return `<div class="songs" onclick="playthisone(${i})">${v.songname} </div>`
+        return `<div class="songs" onclick="playthisone(${i})">${v.songname} </div>`
     }).join("");
 }
 
@@ -186,12 +186,11 @@ let playthisone = (i) => {
     for (let k in playlist) {
         for (let name in playlist[k]) {
             if (name == currentplaylistname.innerText.trim()) {
-                 audio.src = playlist[k][name][i].songAddress;
+                audio.src = playlist[k][name][i].songAddress;
                 songimg.src = playlist[k][name][i].songImg;
                 songname.innerHTML = playlist[k][name][i].songname;
                 playpause(playpausebtn);;
             }
         }
     }
-
 }

@@ -10,21 +10,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
- 
+
 <body>
-      <div class="cont">
-         <div class="firstbox inner">
+    <div class="cont">
+        <div class="firstbox inner">
             <div class="firstbox-div">
                 <h1 style="float: left;"> MUSIC PLAYER</h1>
                 <br>
-            <select class="form-select" id="Singers" onchange="changeBySinger(this)"
-                aria-label="Default select example">
-                <option value="all">all</option>
-                <option value="arjit">arjit</option>
-                <option value="sonu">sonu</option>
-                <option value="neha">neha</option>
-                <option value="sidhu">sidhu</option>
-            </select>
+                <select class="form-select" id="Singers" onchange="changeBySinger(this)"
+                    aria-label="Default select example">
+                    <option value="all">all</option>
+                    <option value="arjit">arjit</option>
+                    <option value="sonu">sonu</option>
+                    <option value="neha">neha</option>
+                    <option value="sidhu">sidhu</option>
+                </select>
             </div>
             <div id="songbox"></div>
         </div>
@@ -45,7 +45,6 @@
         <div class="thirdbox inner">
             <h3> Current Playlist {<span id="currentplaylistname"> </span>}</h3>
             <div id="currentplaylistsongs"></div>
-
             <input type="text" id="inputplaylist">
             <button class="btn btn-primary" id="addnewplaylist">NewPlaylist</button>
             <div id="showplaylist"></div>
