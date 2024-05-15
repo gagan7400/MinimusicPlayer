@@ -47,12 +47,14 @@ let changeBySinger = (getselect) => {
     songbox.innerHTML = ""
     for (let i in songdata[0]) {
         if (i === singername) {
+            songcount = 0;
             songdata[0][i].forEach((element) => {
                 let songs = document.createElement("div");
                 songs.setAttribute("class", "songs");
                 songs.innerHTML = element.songname;
                 songbox.appendChild(songs);
                 songs.addEventListener("click", () => {
+                    songcount = songdata[0][i].indexOf(element);
                     audio.src = element.songAddress;
                     songimg.src = element.songImg;
                     songname.innerHTML = element.songname;
